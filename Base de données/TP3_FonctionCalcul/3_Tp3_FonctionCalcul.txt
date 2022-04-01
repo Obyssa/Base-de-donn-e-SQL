@@ -1,0 +1,14 @@
+select idArticle, libelle, prix as 'prix en €', prix * 0.79
+from article
+
+select count (distinct idmarque)  from marque
+
+select sum(montantTotal) from achat where dateachat between '2010-04-01' and '2010-04-30'
+
+select max (datelivraison) from lot 
+
+select avg (distancekm) from fournisseur where adressecp like '83___'
+
+select max (prix * 0.8) from article
+
+select avg (prix / (quantite / 1000)) from article where unitemesure = 'g' 

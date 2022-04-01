@@ -1,0 +1,14 @@
+select nom from marque
+order by nom
+
+select * from article 
+order by bio desc
+
+select * from marque m
+inner join article a on a.idmarque = m.idmarque
+order by m.nom desc, a.libelle
+
+select l.*, f.raisonsociale, a.libelle from lot l 
+inner join fournisseur f on f.idfournisseur = l.idfournisseur
+inner join article a on a.idarticle = l.idarticle
+order by l.datelivraison, a.libelle

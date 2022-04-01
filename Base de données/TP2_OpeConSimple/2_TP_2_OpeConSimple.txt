@@ -1,0 +1,13 @@
+select * from fournisseur where distancekm < 100
+
+select * from fournisseur where distancekm between 10 and 100
+
+select * from fournisseur where email like '%orange.fr'
+
+select * from fournisseur where raisonsociale like '%ar%'
+
+select * from lot where datefabrication < '2010-03-23' and datelivraison between '2010-03-24' and '2010-03-26'
+
+select * from article where idrayon like 12 and packaging is null or unitemesure is null
+
+select * from article where packaging in ('Par 3','Par 6','Par 12')

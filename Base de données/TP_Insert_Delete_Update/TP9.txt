@@ -1,0 +1,22 @@
+
+
+
+insert into article(idarticle, libelle, prix, quantite, idrayon, idmarque) 
+values(9999, 'Veste rouge', 100, 10, 20, 31)
+
+update fournisseur set adressecp = 'Boulevard de la république'
+where raisonsociale = 'Le boucher'
+
+update article set prix = 6
+where libelle = 'Café moulu'
+
+update article set bio = 1
+
+delete from article 
+where idarticle = 9999
+
+Tu ne peux pas effacer la clés étrangère seulement.
+
+delete from lot 
+where idarticle in (select idarticle from article 
+where idrayon = 9)

@@ -1,0 +1,18 @@
+Exercice 1 : 
+cles primaire ;
+- Achat: idAchat 
+- Lot: idLot #idArticle, #idFournisseur
+- Fournisseur: idFournisseur
+- Marque: idMarque
+- Rayon: idRayon
+- Article: idArticle #idMarque, #idRayon
+- ListesCourses: idAchat, idArticle
+
+Exercice 2
+select idFournisseur as "n°F", raisonSociale as "Nom", adresserue, adressecp, email, numerotelephone, distancekm from fournisseur
+
+select idarticle as "Code barre" from ListeCourses
+
+select m.nom from marque m
+
+select a.idachat as "N°", a.dateachat as "Date", a.montanttotal as "Prix à payer" from achat a

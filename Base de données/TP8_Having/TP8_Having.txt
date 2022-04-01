@@ -1,0 +1,20 @@
+select idachat, count(*)
+from listecourses
+group by idachat
+having count(*) < 5
+
+select idrayon, count(*)
+from article
+group by idrayon
+having count(*) = 4
+
+select idfournisseur, count(*)
+from lot
+group by idfournisseur
+having count(*) < 10
+
+select l.idarticle, count(*)
+from listecourses l
+group by l.idarticle
+having count(*) <= 5 and  count(*) >= 2
+order by l.idarticle desc

@@ -1,0 +1,38 @@
+select a.idArticle as 'Référence', a.libelle as 'Article'
+from article a
+inner join listecourses l on l.idArticle = a.idArticle
+
+select a.idArticle as 'Référence', a.libelle as 'Article', ac.dateAchat as 'date'
+from article a
+inner join listecourses l on l.idArticle = a.idArticle
+inner join achat ac on ac.idAchat = l.idAchat
+
+select idArticle as 'Référence', a.libelle, prix, m.nom, r.libelle
+from article a
+inner join marque m  on m.idMarque = a.idmarque
+inner join rayon r on r.idrayon = a.idrayon
+
+select a.idArticle as 'Référence', a.libelle, a.prix, m.nom, r.libelle, ac.dateAchat
+from article a
+inner join marque m on m.idMarque = a.idmarque
+inner join rayon r on r.idrayon = a.idrayon 
+inner join listecourses l on a.idarticle = l.idarticle
+inner join achat ac on l.idachat = ac.idachat
+
+select a.idArticle as 'Référence', a.libelle as 'Produit', a.prix as 'P.U', m.nom as 'Marque', r.libelle as 'Rayon', ac.dateAchat as 'Date'
+from article a
+inner join marque m on m.idMarque = a.idmarque
+inner join rayon r on r.idrayon = a.idrayon 
+inner join listecourses l on a.idarticle = l.idarticle
+inner join achat ac on l.idachat = ac.idachat
+
+select f.raisonsociale
+from fournisseur f
+left join lot l on l.idfournisseur = f.idfournisseur
+where l.datelivraison is null
+
+select r.libelle
+from rayon r
+left join article a on r.idrayon = a.idrayon
+where a.idarticle is null
+

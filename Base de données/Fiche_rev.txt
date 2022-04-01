@@ -1,0 +1,34 @@
+DISTINCT, utilisé avec l’instruction SELECT, a pour effet de ne pas afficher de doublons
+
+BETWEEN, permet de définir une intervalle
+
+IN, permet de voir si une valeur est contenu dans une liste
+
+LIKE, permet une comparaison partielle 
+
+NULL, permet d'avoir la colonne ou la valeur est null != NOT NULL 
+
+SUM, permet d'avoir la somme de la colonne 
+
+AVG, permet d'avoir la moyenne de la colonne 
+
+INNER JOIN, jointure en commun 
+
+LEFT JOIN, jointure diferente 
+
+ORDER BY, permet de trié (ASC = croissant, DESC =  décroissant)
+
+GROUP BY, permet de grouper des données grâce à un champ
+
+HAVING, permet de créer une restriction sur le group by 
+
+
+INSERT INTO Animaux (idAnimal, nomAnimal, nomAnimalEn) 
+VALUES (3 , “Tigre” , ”Tiger”)
+
+UPDATE nomDeLaTable
+SET colonneAmettreAjour = nouvelleValeur
+WHERE condition
+
+DELETE FROM laTableCible
+WHERE condition

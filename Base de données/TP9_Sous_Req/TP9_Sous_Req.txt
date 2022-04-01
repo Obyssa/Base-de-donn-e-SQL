@@ -1,0 +1,17 @@
+select * from article 
+where prix = (select min(prix) from article)
+
+select * from lot
+where datelivraison = 
+(select datelivraison from lot where idlot = 'L593078838')
+
+select r.idrayon, r.libelle from rayon r
+inner join article a on a .idrayon = r.idrayon
+inner join lot l on a.idarticle = l.idarticle
+where datelivraison = (select max(dateLivraison) from lot)
+
+select r.idrayon, r.libelle from rayon r
+inner join article a on a.idrayon = r.idrayon
+inner join lot l on l.idarticle = a.idarticle
+where datelivraison = (select max(datelivraison) from lot
+where datelivraison < (select max(datelivraison) from lot))

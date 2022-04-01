@@ -1,0 +1,83 @@
+------------1er partie---------------
+select * from etape
+
+SELECT villeDepart as 'Villes à la fois départ et arrivée' from etape
+where villeDepart = villeArrivee
+
+select sum(distance)  from etape
+
+select MAX(distance) from etape
+
+select nom, prenom, dossard from coureur
+where dossard = 1
+
+select COUNT(idequipe) from equipe
+
+select directeur from equipe e
+inner join pays p on p.idpays = e.nationalite
+where nationalite = 'FRA'
+
+select nom, url from equipe 
+where url like '%.fr'
+
+select min(dateDeNaissance) from coureur
+
+select COUNT(idpays) from pays
+
+select c.nom, c.prenom from coureur c
+inner join resultatetape r on c.dossard = r.idcoureur
+where classement = 1
+group by c.nom, c.prenom
+
+select min(idetape) from resultatetape
+where abandon = 1
+
+select count(idetape) from resultatetape
+where abandon = 1
+
+------------2e partie---------------
+
+SELECT villedepart as 'Villes à la fois départ et arrivée' from etape
+where villedepart in (select villearrivee from etape)
+
+SELECT min(datedenaissance) from coureur
+where nationalite like 'FRA'
+
+SELECT count(c.nom), c.nationalite FROM coureur c
+inner join pays p on p.idpays = c.nationalite
+group by c.nationalite
+order by count(c.nom) desc
+
+select c.prenom, c.nom from coureur c
+inner join resultatetape r on c.dossard = r.idcoureur
+where classement = 1
+group by c.prenom, c.nom
+having COUNT(classement) > 1
+
+select nationalite, COUNT(*) from coureur
+group by nationalite
+having COUNT(nationalite) = 1
+
+select c.prenom, c.nom, COUNT(*) * 8000 as 'Sommes acquise en victoires détapes' from coureur c
+inner join resultatetape r on c.dossard = r.idcoureur
+where classement = 1
+group by c.prenom, c.nom
+
+select idetape, villedepart, villearrivee, distance from etape
+where distance = (select MAX(distance) from etape)
+
+select datedenaissance from coureur
+where datedenaissance = (select Max(datedenaissance) from coureur)
+
+select directeur from equipe eq
+inner join coureur c on c.idequipe = eq.idequipe
+inner join resultatetape r on r.idcoureur = c.dossard
+where idetape = 21 and classement = 1
+
+select e.nom, temps from resultatetape r
+inner join coureur c on r.idcoureur = c.dossard
+inner join equipe e on e.idequipe = c.idequipe
+where idetape = 2
+group by e.nom, temps
+order by temps asc
+

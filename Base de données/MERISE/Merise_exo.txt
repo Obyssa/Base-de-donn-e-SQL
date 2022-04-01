@@ -1,0 +1,4 @@
+le client peut déposer de 0 à une infinité d'annonce 
+une annonce appartient à un seule client 
+une annonce peut concerner qu'une seule rubrique 
+une rubrique peut concerner une infinité d'annonce 

@@ -1,0 +1,19 @@
+select l.idAchat, count(*)from listecourses l
+join achat a on a.idachat = l.idachat
+group by l.idachat
+
+select r.idrayon, count(*) from article a
+inner join rayon r on r.idrayon = a.idrayon
+group by r.idrayon
+
+select l.idfournisseur, COUNT(*) from Lot l
+inner join fournisseur f on f.idfournisseur = l.idfournisseur
+group by l.idFournisseur
+
+select count(*)idArticle from listecourses
+group by idarticle
+order by idarticle desc
+
+select a.idrayon, avg(a.prix /( a.quantite / 1000)) as prixkilos from article a
+where unitemesure = 'g'
+group by a.idrayon
